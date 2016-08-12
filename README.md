@@ -1,24 +1,51 @@
-server {
-    server_name www.starter.com;
+# README
 
-    root /Users/lufangyu1217/htdocs/user-manage-system/web;
+## 数据库变更脚本
 
-    location / {
-        try_files $uri /app_dev.php$is_args$args;
-    }
+### 查看所有命名
 
-    location ~ ^/(app_dev|config)\.php(/|$) {
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
-        fastcgi_split_path_info ^(.+\.php)(/.*)$;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-        fastcgi_param DOCUMENT_ROOT $realpath_root;
-    }
+```
+bin/phpmig
+```
 
-    location ~ \.php$ {
-      return 404;
-    }
+### 生成一个Migration脚本类
 
-    error_log /var/log/nginx/www.starter.com.error.log;
-    access_log /var/log/nginx/www.starter.com.access.log;
-}
+```
+bin/phpmig generate ClassName ./migrations
+```
+
+第一个参数`ClassName`为本次Migration脚本类的类名，请根据实际情况取名，表明意图。
+第二个参数`./migrations`为Migration脚本类的存放目录，请使用约定值`./migrations`。
+
+### 运行所有为执行过的Migration脚本
+
+```
+bin/phpmig migrate
+```
+
+### 重新执行某个具体版本的Migration脚本
+
+```
+bin/phpming redo VERSION_NO
+```
+
+### 回退最后执行过的一个版本
+
+```
+bin/phpmig rollback
+```
+
+## 单元测试
+
+### 执行所有单元测试
+
+```
+phpunit -c app/ 
+```
+
+### 执行某个单元测试
+
+```
+phpunit -c app TEST_CAST_FILEPATH
+```
+

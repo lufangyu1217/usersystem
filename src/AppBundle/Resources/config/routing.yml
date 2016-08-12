@@ -1,83 +1,19 @@
 homepage:
-    path:  /
-    defaults: { _controller: AppBundle:User:listPresent }
+  path:      /
+  defaults:  { _controller: AppBundle:Example:homepage }
 
-admin_user_present_list:
-    path:  /admin/users/present
-    defaults: { _controller: AppBundle:User:listPresent }
+login:
+  path:      /login
+  defaults:  { _controller: AppBundle:Example:login }
 
-admin_user_demission_list:
-    path:  /admin/users/demission
-    defaults: { _controller: AppBundle:User:listDemission }
+login_check:
+  path:      /login_check
+  defaults:  { _controller: AppBundle:Example:loginCheck }
 
-admin_user_status_change:
-    path:  /admin/user/{id}/change/{status}
-    defaults: { _controller: AppBundle:User:changeJobStatus }
-    
-admin_user_add:
-    path:  /admin/user/add
-    defaults: { _controller: AppBundle:User:createUser }
+logout:
+  path:      /logout
+  defaults:  { _controller: AppBundle:Example:logout }
 
-admin_user_edit:
-    path:  /admin/user/{id}/edit
-    defaults: { _controller: AppBundle:User:editUser }
-
-admin_user_basic_show:
-    path: /admin/user/{id}/show/basic
-    defaults: { _controller: AppBundle:User:showBasic }
-
-admin_user_family_show:
-    path: /admin/user/{id}/show/family
-    defaults: { _controller: AppBundle:User:showFamilyMembers }
-
-admin_user_learn_show:
-    path: /admin/user{id}/show/learn
-    defaults: { _controller: AppBundle:User:showEduExperiences}
-
-admin_user_other_show:
-    path: /admin/user/{id}/show/other
-    defaults: { _controller: AppBundle:User:showOtherInfo}
-
-admin_user_work_show:
-    path: /admin/user/{id}/show/work
-    defaults: { _controller: AppBundle:User:showWorkExperiences}
-
-admin_user_family_info_add:
-    path:  /admin/user/family/info/add
-    defaults: { _controller: AppBundle:User:addUserFamilyInfo }
-
-admin_user_learn_info_add:
-    path:  /admin/user/learn/info/add
-    defaults: { _controller: AppBundle:User:addUserLearnInfo }
-
-admin_user_work_info_add:
-    path:  /admin/user/work/info/add
-    defaults: { _controller: AppBundle:User:addUserWorkInfo }
-
-admin_list_department:
-    path: /admin/department/list
-    defaults: { _controller:AppBundle:Department:list }
-
-admin_add_department:
-    path: /admin/department/add
-    defaults: { _controller:AppBundle:Department:add }
-
-admin_delete_department:
-    path: /admin/department/{id}/delete
-    defaults: { _controller:AppBundle:Department:delete }    
-
-admin_edit_department:
-    path: /admin/department/{id}/edit
-    defaults: { _controller:AppBundle:Department:edit }    
-
-admin_user_number_check:
-    path: /admin/user/number/check
-    defaults: { _controller:AppBundle:User:checkNumberForCreate }
-
-admin_user_role_change:
-    path: /admin/user/role/change
-    defaults: {_controller: AppBundle:User:changeUserRole }
-
-admin_user_import:
-    path: /admin/user/improt
-    defaults: {_controller: AppBundle:User:improt }
+register:
+  path:      /register
+  defaults:  { _controller: AppBundle:Example:register }

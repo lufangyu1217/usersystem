@@ -1,10 +1,10 @@
 <?php
-
 namespace AppBundle\Twig;
 
 class AssetHelperExtension extends \Twig_Extension
 {
     protected $scripts = array();
+
     protected $csses = array();
 
     public function getFunctions()
@@ -20,9 +20,11 @@ class AssetHelperExtension extends \Twig_Extension
         if (empty($paths)) {
             return array_unique($this->scripts);
         }
+
         if (!is_array($paths)) {
             $paths = array($paths);
         }
+
         $this->scripts = array_merge($this->scripts, $paths);
     }
 
@@ -31,12 +33,14 @@ class AssetHelperExtension extends \Twig_Extension
         if (empty($paths)) {
             return array_unique($this->csses);
         }
+
         if (!is_array($paths)) {
             $paths = array($paths);
         }
+
         $this->csses = array_merge($this->csses, $paths);
     }
-    
+
     public function getName()
     {
         return 'app_asset_helper';

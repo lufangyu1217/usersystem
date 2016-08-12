@@ -8,11 +8,8 @@ class AppKernel extends Kernel
     public function boot()
     {
         parent::boot();
-        date_default_timezone_set('Asia/Shanghai');
-        $parameters = $this->getContainer()->getParameter('biz');
-        $biz= new \Biz\BizKernel($parameters);
+        $biz = $this->getContainer()->get('biz');
         $biz->boot();
-        $this->getContainer()->set('biz', $biz);
     }
 
     public function registerBundles()
@@ -41,5 +38,15 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+    }
+
+    public function getCacheDir()
+    {
+        return dirname($this->rootDir).'/var/cache/'.$this->environment;
+    }
+
+    public function getLogDir()
+    {
+        return dirname($this->rootDir).'/var/logs';
     }
 }
