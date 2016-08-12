@@ -1,0 +1,56 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% set nav = 'user_list' %}
+
+{% block content_title %}
+{{ script(['links/user/js/list.js']) }}
+{{ script(['links/user/js/show-user.js']) }}
+  <div class="content-header">
+    <h1>员工管理</h1>
+  </div>
+  <hr>
+  <form id='search-form' class="form-inline" {% if status == 'on' %}action='{{ path('admin_user_present_list') }}'{% else %}action='{{ path('admin_user_demission_list') }}'{% endif %}>
+    <select name="name" class="form-control search-select">
+      <option value="">所有部门</option>
+      <option {% if app.request.query.get('name') == '运营部' %} selected="selected"{% endif %}>运营部</option>
+      <option {% if app.request.query.get('name') == '技术部' %} selected="selected"{% endif %}>技术部</option>
+      <option {% if app.request.query.get('name') == '销售部' %} selected="selected"{% endif %}>销售部</option>
+      <option {% if app.request.query.get('name') == '市场部' %} selected="selected"{% endif %}>市场部</option>
+      <option {% if app.request.query.get('name') == '人力资源部' %} selected="selected"{% endif %}>人力资源部</option>
+    </select>
+    <select name="gender" class="form-control search-select">
+      <option value="">性别</option>
+      <option {% if app.request.query.get('gender') == 'male' %} selected="selected"{% endif %} value="male">男</option>
+      <option {% if app.request.query.get('gender') == 'famale' %} selected="selected"{% endif %} value="famale">女</option>
+    </select>
+    <select name="education" class="form-control search-select">
+      <option value="">学历</option>
+      <option {% if app.request.query.get('education') == '初中' %} selected="selected"{% endif %}>初中</option>
+      <option {% if app.request.query.get('education') == '高中' %} selected="selected"{% endif %}>高中</option>
+      <option {% if app.request.query.get('education') == '大专' %} selected="selected"{% endif %}>大专</option>
+      <option {% if app.request.query.get('education') == '本科' %} selected="selected"{% endif %}>本科</option>
+      <option {% if app.request.query.get('education') == '研究生' %} selected="selected"{% endif %}>研究生</option>
+      <option {% if app.request.query.get('education') == '博士' %} selected="selected"{% endif %}>博士</option>
+    </select>
+    <select name="key" class="form-control search-select">
+      <option value="trueName" {% if app.request.query.get('key') == 'trueName' %} selected="selected"{% endif %}>姓名</option>
+      <option value="number" {% if app.request.query.get('key') == 'number' %} selected="selected"{% endif %}>工号</option>
+    </select>
+    <input class="form-control" id='keyword' name='keyword' placeholder="请输入关键词" value="{{ app.request.query.get('keyword') }}">
+    <input type='submit' class="btn btn-sm btn-default" value='搜索'>
+  </form>
+  <ul class="nav nav-tabs mbm job-status">
+    <li {% if status == 'on' %} class="active" {% endif %}><a href="{{ path('admin_user_present_list') }}">在职</a></li>
+    <li {% if status == 'off' %} class="active" {% endif %} ><a href="{{ path('admin_user_demission_list') }}">离职</a></li>
+    <div class="form-group pull-right">
+      <a class="btn btn-sm btn-success" id="js-import-btn" data-url="{{ path('admin_user_import') }}">
+      <span class="glyphicon glyphicon-import"></span>&nbsp;导入员工</a>
+      <a class="btn btn-sm btn-success" href="{{ path('admin_user_add') }}">
+      <span class="glyphicon glyphicon-plus"></span>&nbsp;添加员工</a>
+    </div>
+  </ul>
+{% endblock %}
+{% block content_body %}
+  {% include 'AppBundle:User/list-user:list-table.html.twig' %}
+{% endblock %}
+

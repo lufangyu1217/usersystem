@@ -1,0 +1,49 @@
+{% extends 'AppBundle:User:show-user/show-user-modal.html.twig' %}
+{% block title %}
+{{ script(['links/user/js/add-user.js']) }}
+<div class="page-header">
+  <h4>员工详情</h4>
+</div>
+<ul class="nav nav-tabs">
+  <li role="button"><a class="show-basic-info" data-url="{{path('admin_user_basic_show',{id:userId})}}">基础信息</a></li>
+  <li role="button" class="active"><a class="show-family-info"  data-url="{{path('admin_user_family_show',{id:userId})}}">家庭信息</a></li>
+  <li role="button"><a class="show-learn-info"  data-url="{{path('admin_user_learn_show',{id:userId})}}">学历信息</a></li>
+  <li role="button"><a class="show-work-info"  data-url="{{path('admin_user_work_show',{id:userId})}}">工作信息</a></li>
+  <li role="button"><a class="show-other-info"  data-url="{{path('admin_user_other_show',{id:userId})}}">其他信息</a></li>
+{% endblock %}
+
+{% block body %}
+{% for familyMember in familyMembers%}
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-2 control-label">称谓：</label>
+      <div class="col-sm-3" align="center">
+        {{familyMember.member}}
+      </div>
+      <label class="col-sm-3 control-label">姓名：</label>
+      <div class="col-sm-3" align="center">
+        {{familyMember.trueName}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">年龄：</label>
+      <div class="col-sm-3" align="center">
+        {{familyMember.age}}
+      </div>
+
+      <label class="col-sm-3 control-label">联系电话：</label>
+      <div class="col-sm-3" align="center">
+        {{familyMember.phone}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">工作单位及职务：</label>
+      <div class="col-sm-3" align="center">
+        {{familyMember.job}}
+      </div>
+    </div>
+  </form>
+  <hr>
+{% endfor %}
+{% endblock %}
+{% block footer %}{% endblock %}

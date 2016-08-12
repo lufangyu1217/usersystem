@@ -1,0 +1,48 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% set nav = 'user_create' %}
+{% block content_title %} <h4>添加员工</h4>{% endblock %}
+{% block content_body %}
+
+{{ script(['links/user/js/add-user.js']) }}
+<form id="add-user-form" class="form-horizontal" method="post" action="{{ path('admin_user_add') }}">
+  <div class="add-user-body">
+    <legend class="text-primary">基本信息</legend>
+    {% include 'AppBundle:User:add-user/user-basic-info.html.twig' %}
+
+    <legend class="text-primary">
+      家庭状况
+      <button type="button" class="btn btn-sm btn-success add-family-info">新增</button>
+    </legend>
+    <div class="family">
+      {% include 'AppBundle:User:add-user/user-family-info.html.twig' %}
+    </div>
+
+    <legend class="text-primary">
+      学习经历
+      <button type="button" class="btn btn-sm btn-success add-learn-info">新增</button>
+    </legend>
+    <div class="learn">
+      {% include 'AppBundle:User:add-user/user-learn-info.html.twig' %}
+    </div>
+
+    <legend class="text-primary">
+      工作履历
+      <button type="button" class="btn btn-sm btn-success add-work-info">新增</button>
+    </legend>
+    <div class="work">
+      {% include 'AppBundle:User:add-user/user-work-info.html.twig' %}
+    </div>
+
+    <legend class="text-primary">其他信息</legend>
+    {% include 'AppBundle:User:add-user/user-other-info.html.twig' %}
+  </div>
+  <div class="footer btn-footer">
+    <a href="{{ path('admin_user_present_list') }}" class="btn btn-default">取消</a>
+    {# <a href="{{ path('admin_user_add') }}" class="btn btn-primary add-user">保存</a> #}
+    <button class="btn btn-primary" type="submit">保存</button>
+  </div>
+</form>
+{% endblock %}
+
+

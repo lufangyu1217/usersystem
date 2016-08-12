@@ -1,0 +1,14 @@
+<script type="text/javascript" src="{{ asset('assets/js/vendor.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('assets/js/jquery.validate.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('assets/js/messages_zh.js') }}"></script>
+<script type="text/javascript" src="{{ asset('links/util/js/datepicker.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('links/util/js/tableSort.js') }}"></script>
+{% if script_controller is defined %}
+  <script type="text/javascript" src="{{ asset(script_controller) }}"></script>
+{% endif %}
+{% if script_controller_show is defined %}
+  <script type="text/javascript" src="{{ asset(script_controller_show) }}"></script>
+{% endif %}
+<script type="text/javascript" src="{{ asset('links/user/js/sort.js') }}"></script>
+<script type="text/javascript" src="{{ asset('links/user/js/change-role.js') }}"></script>
+<script type="text/javascript" src="{{ asset('links/user/js/datepicker.js') }}"></script>

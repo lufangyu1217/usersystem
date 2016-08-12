@@ -1,0 +1,15 @@
+{% extends 'AppBundle::modal-base.html.twig' %}
+
+{% block title %}
+  <h4 class="modal-title">导入员工</h4>
+{% endblock %}
+{% block body %}
+  <form method="post" action="{{ path('admin_user_import')}}" class=" form-group col-md-offset-3" enctype="multipart/form-data">
+    <label for="import">选择需要导入的文件</label>
+    <input  type="file" name="file_stu" id="import"/>
+    <p class="help-block">文件格式为.xls文件.<a href="#">点击下载示例文件</a></p>
+    <button class="btn btn-primary col-md-offset-6" type="submit">导入</button>
+
+  </form>
+{% endblock %}
+{% block footer %}{% endblock %}

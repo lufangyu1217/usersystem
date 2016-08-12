@@ -1,0 +1,162 @@
+{% extends 'AppBundle:User:show-user/show-user-modal.html.twig' %}
+
+{% block title %}
+{{ script(['links/user/js/add-user.js']) }}
+<div class="page-header">
+  <h4>员工详情</h4>
+</div>
+<ul class="nav nav-tabs">
+  <li role="button" class="active"><a class="show-basic-info" data-url="{{path('admin_user_basic_show',{id:basic.userId})}}">基础信息</a></li>
+  <li role="button"><a class="show-family-info"  data-url="{{path('admin_user_family_show',{id:basic.userId})}}">家庭信息</a></li>
+  <li role="button"><a class="show-learn-info"  data-url="{{path('admin_user_learn_show',{id:basic.userId})}}">学历信息</a></li>
+  <li role="button"><a class="show-work-info"  data-url="{{path('admin_user_work_show',{id:basic.userId})}}">工作信息</a></li>
+  <li role="button"><a class="show-other-info"  data-url="{{path('admin_user_other_show',{id:basic.userId})}}">其他信息</a></li>
+{% endblock %}
+
+{% block body %}
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">姓名：</label>
+        <div class="col-sm-3" align="center">
+         {{basic.trueName}}
+        </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">性别：</label>
+        <div class="col-sm-3" align="center">
+          {% if basic.gender == 'famale' %}男{% else %}女{% endif %}
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" >出生日期：</label>
+        <div class="col-sm-3" align="center">
+          {{basic.bornTime|date('m-d')}}
+        </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">籍贯：</label>
+        <div class="col-sm-3" align="center">
+          {{basic.native}}
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">民族：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.nation}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">身高：</label>
+        <div class="col-sm-3" align="center">
+          {{basic.height}}
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">体重：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.weight}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">血型：</label>
+        <div class="col-sm-3" align="center">
+          {{basic.blood}}
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">文化程度：</label>
+      <div class="col-sm-3" align="center">
+       {{basic.education}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">专业：</label>
+        <div class="col-sm-3" align="center">
+          {{basic.prefession}}
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">婚否：</label>
+      <div class="col-sm-3" align="center">
+      {% if basic.marriage == 0 %}未婚{% else %}已婚{% endif %}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">户口所在地：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.residence}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">家庭地址：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.address}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">邮编：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.postcode}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">身份证号码：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.IDcard}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">职称：</label>
+      <div class="col-sm-3" align="center">
+       {{basic.professionTitle}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">户口性质：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.householdType}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">联系电话：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.phone}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">Email：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.email}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">档案存放地：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.recordPlace}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">有无疾病史：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.hasSick}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">希望服务年限：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.serviceTime}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">期望月薪：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.expectedSalary}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">政治面貌：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.politics}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label" align="center">预计到岗时间：</label>
+      <div class="col-sm-3" align="center">
+        {{basic.joinTime|date('Y-m-d')}}
+      </div>
+      <label for="inputEmail3" class="col-sm-3 control-label" align="center">与原工作的劳动关系：</label>
+      <div class="col-sm-3" align="center">
+       {{basic.formerLaborShip}}
+    </div>
+  </form>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
