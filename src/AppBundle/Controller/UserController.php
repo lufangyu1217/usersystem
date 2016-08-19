@@ -31,13 +31,21 @@ class UserController extends UserBaseController
     }
 
 
-    public function showBasicAction(Request $request, $id)
-    {   
+    public function showAction(Request $request, $id)
+    {
         $basic = $this->getUserService()->getBasic($id);
+        $familyMembers = $this->getUserService()->findFamilyMembers($basic['id']);
+        $eduExperiences = $this->getUserService()->findEduExperiences($basic['id']);
+        $workInfos = $this->getUserService()->findWorkExperiences($basic['id']);
+        $otherInfo = $this->getUserService()->getOtherInfoByUserId($basic['id']);
 
-        return $this->render('AppBundle:User:show/show-basic-info.html.twig', array(
-            'type' => 'basic',
+        return $this->render('AppBundle:User:show/show-user-info.html.twig', array(
             'basic' => $basic,
+            'familyMembers' => $familyMembers,
+            'eduExperiences' => $eduExperiences,
+            'workInfos' => $workInfos,
+            'otherInfo' => $otherInfo,
+            'tab' => 'basic',
         ));
     }
 
@@ -82,7 +90,9 @@ class UserController extends UserBaseController
 
         $user = $this->getUserService()->getUser($id);
         $path = $user['img'.$type];
-
+        if (empty($path)) {
+            $path = 'assets/avatar.png';
+        }
         return $this->render('AppBundle:User:upload/upload-images.html.twig', array(
             'imagePath' => $path,
             'id' => $user['id'],

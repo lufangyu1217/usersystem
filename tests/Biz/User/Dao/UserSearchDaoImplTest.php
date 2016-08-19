@@ -97,14 +97,17 @@ class UserSearchDaoImplTest extends BaseTestCase
         $department = $this->getDepartmentService()->createDepartment($fields);
 
         $conditions = array(
-            'name' => '技术部',
+            'searchTime' => 'joinTime',
+            'startTime' => '1462464000',
+            'endTime' => '1462464000',
+            'departmentId' => '1',
             'gender' => 'male',
             'education' => '本科',
             'trueName' => '李云龙'
         );
 
         $users = $this->getSearchDao()->searchAll($conditions, array('number','ASC'), 0, PHP_INT_MAX);
-        $this->assertEquals($conditions['name'], $users[0]['name']);
+        $this->assertEquals($conditions['departmentId'], $users[0]['departmentId']);
         $this->assertEquals($conditions['gender'], $users[0]['gender']);
         $this->assertEquals($conditions['education'], $users[0]['education']);
         $this->assertEquals($conditions['trueName'], $users[0]['trueName']);
@@ -120,14 +123,17 @@ class UserSearchDaoImplTest extends BaseTestCase
         $department = $this->getDepartmentService()->createDepartment($fields);
 
         $conditions = array(
-            'name' => '技术部',
+            'searchTime' => 'joinTime',
+            'startTime' => '1462464000',
+            'endTime' => '1462464000',
+            'departmentId' => '1',
             'gender' => 'male',
             'education' => '本科',
             'trueName' => '李云龙'
         );
 
         $users = $this->getSearchDao()->searchAll($conditions, array('number','ASC'), 0, PHP_INT_MAX);
-        $this->assertEquals($conditions['name'], $users[0]['name']);
+        $this->assertEquals($conditions['departmentId'], $users[0]['departmentId']);
         $this->assertEquals($conditions['gender'], $users[0]['gender']);
         $this->assertEquals($conditions['education'], $users[0]['education']);
         $this->assertEquals($conditions['trueName'], $users[0]['trueName']);
@@ -143,7 +149,10 @@ class UserSearchDaoImplTest extends BaseTestCase
         $department = $this->getDepartmentService()->createDepartment($fields);
 
         $conditions = array(
-            'name' => '技术部',
+            'searchTime' => 'joinTime',
+            'startTime' => '1462464000',
+            'endTime' => '1462464000',
+            'departmentId' => '1',
             'gender' => 'male',
             'education' => '本科',
             'trueName' => '李云龙'
@@ -163,7 +172,10 @@ class UserSearchDaoImplTest extends BaseTestCase
         $department = $this->getDepartmentService()->createDepartment($fields);
 
         $conditions = array(
-            'name' => '技术部',
+            'searchTime' => 'joinTime',
+            'startTime' => '1462464000',
+            'endTime' => '1462464000',
+            'departmentId' => '1',
             'gender' => 'male',
             'education' => '本科',
             'trueName' => '李云龙'

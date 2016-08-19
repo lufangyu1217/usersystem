@@ -36,12 +36,9 @@ class UserFamilyInfoDaoImpl extends GeneralDaoImpl implements UserFamilyInfoDao
     public function declares()
     {
         return array(
-            'serializes' => array(),
             'conditions' => array(
                 'id = :id',
                 'name = :name',
-                'status = :status',
-                'type = :type',
             ),
         );
     }

@@ -9,7 +9,7 @@
       <th>生日</th>
       <th>入职时间</th>
       <th>性别</th>
-      {% if app.user.isLeader() or app.user.isAdmin() %}
+      {% if app.user.isAdmin() %}
       <th>职称</th>
       <th>职级</th>
       {% endif %}

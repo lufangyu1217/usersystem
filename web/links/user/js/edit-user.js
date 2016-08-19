@@ -5,6 +5,10 @@ $('.family').find('#delete-family-info').removeClass('hidden');
 $('.learn').find('#delete-learn-info').removeClass('hidden');
 $('.work').find('#delete-work-info').removeClass('hidden');
 
+console.log($('.delete-family-btn'))
+$('.delete-family-btn:eq(0)').addClass('hidden');
+$('.delete-learn-btn:eq(0)').addClass('hidden');
+$('.delete-work-btn:eq(0)').addClass('hidden');
 
 $("#edit-user-form").on('click', '.add-family-info', function(){
     familyId++;
@@ -16,7 +20,7 @@ $("#edit-user-form").on('click', '.add-family-info', function(){
     $('.family').append($('.family-modal').html());
 });
 
-$('body').on('click', '#delete-family-info', function(){
+$("#edit-user-form").on('click', '#delete-family-info', function(){
     $(this).parent().parent().parent().remove();
 })
 
@@ -37,7 +41,7 @@ $("#edit-user-form").on('click', '.add-learn-info', function(){
     });
 });
 
-$('body').on('click', '#delete-learn-info', function(){
+$('#edit-user-form').on('click', '#delete-learn-info', function(){
     $(this).parent().parent().parent().remove();
 })
 
@@ -58,7 +62,7 @@ $("#edit-user-form").on('click', '.add-work-info', function(){
     });
 });
 
-$('body').on('click', '#delete-work-info', function(){
+$('#edit-user-form').on('click', '#delete-work-info', function(){
     $(this).parent().parent().parent().remove();
 });
 

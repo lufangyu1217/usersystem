@@ -21,6 +21,7 @@ politics:
     other: 其他
 
 blood:
+    '': 选择血型
     A: A
     B: B
     AB: AB

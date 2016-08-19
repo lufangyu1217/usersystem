@@ -43,7 +43,7 @@ class Import
         $keys = $datas[0];
         $sort = array();
         foreach ($datas as $key => $data) {
-            if ($key > 0) {
+            if ($key > 0 && $data[0] != 'OK') {
                 $sort[$key]['basic'] = array_combine(array_slice($keys, 0, 26), array_slice($data, 0, 26));
                 $sort[$key]['family'][1] = array_combine(array_slice($keys, 26, 5), array_slice($data, 26, 5));
                 $sort[$key]['education'][1] = array_combine(array_slice($keys, 31, 5), array_slice($data, 31, 5));

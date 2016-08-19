@@ -3,12 +3,12 @@
   <td>{{ user.number }}</td>
   <td>{{ user.name }}</td>
   <td>{{ user.trueName }}</td>
-  <td>{{ user.bornTime|date('Y-n-d') }}</td>
-  <td>{{ user.joinTime|date('Y-n-d') }}</td>
+  <td>{{ user.bornTime|date('Y-m-d') }}</td>
+  <td>{{ user.joinTime|date('Y-m-d') }}</td>
   <td>
     {% if user.gender == 'male' %}男{% else %}女{% endif %}
   </td>
-  {% if app.user.isLeader() or app.user.isAdmin() %}
+  {% if app.user.isAdmin() %}
   <td>{{ user.professionTitle }}</td>
   <td>{{ user.rank }}</td>
   {% endif %}
@@ -19,7 +19,7 @@
   {% endif %}
   <td style="min-width:100px;">
     <div class="btn-group">
-      <a class="btn btn-default btn-sm show-inuser" data-url="{{ path('user_basic_show',{id:user.id}) }}">查看</a>
+      <a class="btn btn-default btn-sm show-inuser" data-url="{{ path('user_show',{id:user.id}) }}">查看</a>
       {% if app.user.isAdmin() %}
       <a href="#" type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
         <span class="caret"></span>

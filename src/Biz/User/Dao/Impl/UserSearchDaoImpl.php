@@ -98,7 +98,6 @@ class UserSearchDaoImpl extends GeneralDaoImpl implements UserSearchDao
     {
         return array(
             'timestamps' => array('createdTime', 'updatedTime'),
-            'serializes' => array(),
             'conditions' => array(
                 'id = :id',
                 'status = :status',

@@ -119,7 +119,7 @@ class UserServiceImpl extends BaseService implements UserService
         $userBasic = ArrayToolkit::parts($fields['basic'], $userBasicTableFields);
         $userBasic['bornTime'] = strtotime($userBasic['bornTime']);
 
-        if ($userBasic['departmentId'] != $currentBasic['departmentId']) {
+        if (isset($userBasic['departmentId']) && $userBasic['departmentId'] != $currentBasic['departmentId']) {
             $department = $this->getDepartmentService()->getDepartment($userBasic['departmentId']);
             $departmentCount = $department['amount'] + 1;
             $this->getDepartmentService()->updateDepartment($department['id'], array('amount'=>$departmentCount));
@@ -240,7 +240,7 @@ class UserServiceImpl extends BaseService implements UserService
     }
 
     public function uploadImage($userId, $image, $type)
-    {   
+    {
         $image = new Upload($image);
         $user = $this->getUser($userId);
         $oldPath = $user['img'.$type];

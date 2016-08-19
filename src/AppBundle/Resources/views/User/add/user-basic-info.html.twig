@@ -47,7 +47,7 @@
 
   <label class="col-sm-2 control-label">出生日期:</label>
   <div class="col-sm-3 controls">
-      <input type="text" id="bornTime" class="form-control time" name="basic[bornTime]" placeholder="日期格式：年-月-日" value=""/>
+    <input type="text" id="bornTime" class="form-control time" name="basic[bornTime]" placeholder="日期格式：年-月-日" value=""/>
   </div>
 </div>
 
@@ -77,7 +77,6 @@
   <label class="col-sm-2 control-label" for="blood">血 型:</label>
   <div class="col-sm-2 controls">
     <select class="form-control"  name="basic[blood]" >
-      <option value="">选择血型</option>
       {{ select_options(dict('blood')) }}
     </select>
   </div>

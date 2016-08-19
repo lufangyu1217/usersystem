@@ -34,7 +34,7 @@
     <legend class="text-primary">其他信息</legend>
     {% include 'AppBundle:User:add/user-other-info.html.twig' %}
   </div>
-  <div class="footer btn-footer">
+  <div class="footer btn-footer col-sm-offset-8">
     <a href="{{ path('admin_user_present_list') }}" class="btn btn-default">取消</a>
     {{ form_csrf_token() }}
     <button class="btn btn-primary" type="submit">保存</button>

@@ -36,12 +36,9 @@ class UserLearnInfoDaoImpl extends GeneralDaoImpl implements UserLearnInfoDao
     public function declares()
     {
         return array(
-            'serializes' => array(),
             'conditions' => array(
                 'id = :id',
                 'name = :name',
-                'status = :status',
-                'type = :type',
             ),
         );
     }

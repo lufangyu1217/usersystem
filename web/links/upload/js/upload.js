@@ -76,7 +76,6 @@ $(document).ready(function(){
                         alert('上传成功');
                         location.reload();
                     },
-                    
                     error: function (data) {
                     }
                 });

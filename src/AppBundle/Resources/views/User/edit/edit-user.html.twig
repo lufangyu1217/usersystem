@@ -37,7 +37,7 @@
     <legend class="text-primary">其他信息</legend>
     {% include 'AppBundle:User:edit/user-other-info.html.twig' %}
   </div>
-  <div class="footer btn-footer">
+  <div class="footer btn-footer col-sm-offset-8">
     {% if app.user.isAdmin() %}
       <a href="{{ path('admin_user_present_list') }}" class="btn btn-default">取消</a>
     {% else %}

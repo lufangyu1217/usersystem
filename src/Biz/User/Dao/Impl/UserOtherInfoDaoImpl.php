@@ -30,12 +30,10 @@ class UserOtherInfoDaoImpl extends GeneralDaoImpl implements UserOtherInfoDao
     public function declares()
     {
         return array(
-            'serializes' => array(),
-            'conditions' => array(
+                'conditions' => array(
                 'id = :id',
                 'name = :name',
                 'userId = :userId',
-                'type = :type',
             ),
         );
     }

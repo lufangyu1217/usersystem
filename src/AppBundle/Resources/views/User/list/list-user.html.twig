@@ -27,10 +27,10 @@
         {% endif %}
       </select>
       <div class='input-group date'>
-        <input type='text' class="form-control time" name="startTime" value="{{ app.request.query.get('startTime') }}">
+        <input type='text' class="form-control time" name="startTime" value="{{ app.request.query.get('startTime') }}" placeholder="从">
       </div> -
       <div class='input-group date'>
-        <input type='text' class="form-control time" name="endTime" value="{{ app.request.query.get('endTime') }}">
+        <input type='text' class="form-control time" name="endTime" value="{{ app.request.query.get('endTime') }}" placeholder="到">
       </div>
     </div><br>
     <div class="form-group">

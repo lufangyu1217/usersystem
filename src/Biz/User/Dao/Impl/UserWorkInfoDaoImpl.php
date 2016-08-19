@@ -40,8 +40,6 @@ class UserWorkInfoDaoImpl extends GeneralDaoImpl implements UserWorkInfoDao
             'conditions' => array(
                 'id = :id',
                 'name = :name',
-                'status = :status',
-                'type = :type',
             ),
         );
     }

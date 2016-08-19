@@ -36,7 +36,6 @@ class UserBasicInfoDaoImpl extends GeneralDaoImpl implements UserBasicInfoDao
     public function declares()
     {
         return array(
-            'serializes' => array(),
             'conditions' => array(
                 'id = :id',
                 'name = :name',

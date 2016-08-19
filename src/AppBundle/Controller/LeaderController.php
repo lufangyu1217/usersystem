@@ -41,55 +41,21 @@ class LeaderController extends UserBaseController
         ));
     }
 
-    public function showBasicAction(Request $request, $id)
+    public function showAction(Request $request, $id)
     {   
         $basic = $this->getUserService()->getBasic($id);
-        return $this->render('AppBundle:Leader:show/show-basic-info.html.twig', array(
-            'type' => 'basic',
+        $familyMembers = $this->getUserService()->findFamilyMembers($basic['id']);
+        $eduExperiences = $this->getUserService()->findEduExperiences($basic['id']);
+        $workInfos = $this->getUserService()->findWorkExperiences($basic['id']);
+        $otherInfo = $this->getUserService()->getOtherInfoByUserId($basic['id']);
+
+        return $this->render('AppBundle:Leader:show/show-user-info.html.twig', array(
             'basic' => $basic,
-        ));
-    }
-
-    public function showFamilyMembersAction(Request $request, $id)
-    {
-        $familyMembers = $this->getUserService()->findFamilyMembers($id);
-
-        return $this->render('AppBundle:User:show/show-family-info.html.twig', array(
-            'userId' => $id,
-            'type' => 'family',
             'familyMembers' => $familyMembers,
-        ));
-    }
-
-    public function showEduExperiencesAction(Request $request, $id)
-    {   
-        $eduExperiences = $this->getUserService()->findEduExperiences($id);
-
-        return $this->render('AppBundle:User:show/show-learn-info.html.twig', array(
-            'userId' => $id,
-            'type' => 'learn',
             'eduExperiences' => $eduExperiences,
-        ));
-    }
-
-    public function showWorkExperiencesAction(Request $request, $id)
-    {        
-        $workInfos = $this->getUserService()->findWorkExperiences($id);
-
-        return $this->render('AppBundle:User:show/show-work-info.html.twig', array(
-            'userId' => $id,
-            'type' => 'work',
             'workInfos' => $workInfos,
-        ));
-    }
-
-    public function showOtherInfoAction(Request $request, $id)
-    {   
-        $otherInfo = $this->getUserService()->getOtherInfoByUserId($id);
-
-        return $this->render('AppBundle:User:show/show-other-info.html.twig', array(
-            'type' => 'other',
             'otherInfo' => $otherInfo,
+            'tab' => 'basic',
         ));
     }
 }
