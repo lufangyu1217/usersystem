@@ -1,0 +1,41 @@
+{% extends 'AppBundle::modal-base.html.twig' %}
+
+{% block title %}
+<div class="page-header">
+  <h4>员工详情</h4>
+</div>
+<ul class="nav nav-tabs">
+  <li role="button"><a class="show-basic-info" data-url="{{path('user_basic_show',{id:userId})}}">基础信息</a></li>
+  <li role="button"><a class="show-family-info"  data-url="{{path('leader_user_family_show',{id:userId})}}">家庭信息</a></li>
+  <li role="button" class="active"><a class="show-learn-info"  data-url="{{path('leader_user_learn_show',{id:userId})}}">学历信息</a></li>
+  <li role="button"><a class="show-work-info"  data-url="{{path('leader_user_work_show',{id:userId})}}">工作信息</a></li>
+  <li role="button"><a class="show-other-info"  data-url="{{path('leader_user_other_show',{id:userId})}}">其他信息</a></li>
+{% endblock %}
+
+{% block body %}
+{% for eduExperience in eduExperiences%}
+  <table class="table table-bordered">
+    <tr>
+      <td class="col-sm-3">开始时间：</td>
+      <td>{{eduExperience.startTime|date('Y-m-d')}}</td>
+    </tr>
+    <tr>
+      <td>结束时间：</td>
+      <td>{{eduExperience.endTime|date('Y-m-d')}}</td>
+    </tr>
+    <tr>
+      <td>院校名称：</td>
+      <td>{{eduExperience.schoolName}}</td>
+    </tr>
+    <tr>
+      <td>所学专业：</td>
+      <td>{{eduExperience.profession}}</td>
+    </tr>
+    <tr>
+      <td>担任职务：</td>
+      <td>{{eduExperience.position}}</td>
+    </tr>
+  </table>
+  <hr>
+{% endfor %}
+{% endblock %}

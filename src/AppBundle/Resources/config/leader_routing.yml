@@ -1,0 +1,27 @@
+department_personnel_list:
+    path: /leader/department/personnel/list
+    defaults: { _controller: AppBundle:Leader:listPresent }
+
+department_demission_list:
+    path: /leader/department/demission/list
+    defaults: { _controller: AppBundle:Leader:listDemission }
+
+department_user_basic_show:
+    path: /leader/department/user/{id}/show/basic
+    defaults: { _controller: AppBundle:Leader:showBasic }
+
+leader_user_family_show:
+    path: /leader/user/{id}/show/family
+    defaults: { _controller: AppBundle:Leader:showFamilyMembers }
+
+leader_user_learn_show:
+    path: /leader/user{id}/show/learn
+    defaults: { _controller: AppBundle:Leader:showEduExperiences}
+
+leader_user_other_show:
+    path: /leader/user/{id}/show/other
+    defaults: { _controller: AppBundle:Leader:showOtherInfo}
+
+leader_user_work_show:
+    path: /leader/user/{id}/show/work
+    defaults: { _controller: AppBundle:Leader:showWorkExperiences}

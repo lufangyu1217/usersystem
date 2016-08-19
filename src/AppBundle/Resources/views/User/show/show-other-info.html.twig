@@ -1,0 +1,26 @@
+{% extends 'AppBundle::modal-base.html.twig' %}
+
+{% block title %}
+<div class="page-header">
+  <h4>员工详情</h4>
+</div>
+<ul class="nav nav-tabs">
+  <li role="button"><a class="show-basic-info" data-url="{{path('user_basic_show',{id:otherInfo.userId})}}">基础信息</a></li>
+  <li role="button"><a class="show-family-info"  data-url="{{path('leader_user_family_show',{id:otherInfo.userId})}}">家庭信息</a></li>
+  <li role="button"><a class="show-learn-info"  data-url="{{path('leader_user_learn_show',{id:otherInfo.userId})}}">学历信息</a></li>
+  <li role="button"><a class="show-work-info"  data-url="{{path('leader_user_work_show',{id:otherInfo.userId})}}" >工作信息</a></li>
+  <li role="button"  class="active"><a class="show-other-info"  data-url="{{path('leader_user_other_show',{id:otherInfo.userId})}}">其他信息</a></li>
+{% endblock %}
+
+{% block body %}
+  <table class="table table-bordered">
+    <tr>
+      <td class="col-sm-3">所受培训及所具有证书：</td>
+      <td>{{otherInfo.reward}}</td>
+    </tr>
+    <tr>
+      <td>自我评价：</td>
+      <td>{{otherInfo.selfAssessment}}</td>
+    </tr>
+  </table>
+{% endblock %}

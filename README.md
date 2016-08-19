@@ -1,51 +1,10 @@
-# README
+# 员工管理系统
 
-## 数据库变更脚本
 
-### 查看所有命名
 
-```
-bin/phpmig
-```
+created by 阔知最酷集团
 
-### 生成一个Migration脚本类
+时间控件，在input框的父级div上加time，如果是模态框则把js引入模态框中。
 
-```
-bin/phpmig generate ClassName ./migrations
-```
-
-第一个参数`ClassName`为本次Migration脚本类的类名，请根据实际情况取名，表明意图。
-第二个参数`./migrations`为Migration脚本类的存放目录，请使用约定值`./migrations`。
-
-### 运行所有为执行过的Migration脚本
-
-```
-bin/phpmig migrate
-```
-
-### 重新执行某个具体版本的Migration脚本
-
-```
-bin/phpming redo VERSION_NO
-```
-
-### 回退最后执行过的一个版本
-
-```
-bin/phpmig rollback
-```
-
-## 单元测试
-
-### 执行所有单元测试
-
-```
-phpunit -c app/ 
-```
-
-### 执行某个单元测试
-
-```
-phpunit -c app TEST_CAST_FILEPATH
-```
+2016/08/02
 

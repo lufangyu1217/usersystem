@@ -47,7 +47,7 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         }
 
         $this->db()->update($this->table, $fields, array('id' => $id));
-
+        
         return $this->get($id);
     }
 

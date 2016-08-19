@@ -2,14 +2,22 @@
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use AppBundle\Common\ExtensionManager;
 
 class AppKernel extends Kernel
 {
     public function boot()
     {
         parent::boot();
+        date_default_timezone_set('Asia/Shanghai');
         $biz = $this->getContainer()->get('biz');
         $biz->boot();
+    }
+
+    public function __construct($environment, $debug)
+    {
+        parent::__construct($environment, $debug);
+        $this->extensionManager = ExtensionManager::init($this);
     }
 
     public function registerBundles()
@@ -38,15 +46,5 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
-    }
-
-    public function getCacheDir()
-    {
-        return dirname($this->rootDir).'/var/cache/'.$this->environment;
-    }
-
-    public function getLogDir()
-    {
-        return dirname($this->rootDir).'/var/logs';
     }
 }

@@ -8,7 +8,6 @@ use Codeages\Biz\Framework\Context\CurrentUserInterface;
 
 class CurrentUser implements CurrentUserInterface, AdvancedUserInterface, EquatableInterface, \ArrayAccess
 {
-
     protected $fields;
 
     public function __construct($fields)
@@ -17,7 +16,7 @@ class CurrentUser implements CurrentUserInterface, AdvancedUserInterface, Equata
     }
 
     public function getRoles()
-    {
+    {   
         return $this->fields['roles'];
     }
 
@@ -36,9 +35,57 @@ class CurrentUser implements CurrentUserInterface, AdvancedUserInterface, Equata
         return $this->fields['username'];
     }
 
+    public function trueName()
+    {
+        return $this->fields['trueName'];
+    }
+
+    public function department()
+    {
+        return $this->fields['department'];
+    }
+
     public function eraseCredentials()
     {
 
+    }
+
+    public function isAdmin()
+    {
+        if (count(array_intersect($this->getRoles(), array('ROLE_ADMIN'))) > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isLeader()
+    {
+        if (count(array_intersect($this->getRoles(), array('ROLE_ADMIN', 'ROLE_LEADER'))) > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getAvatar()
+    {
+        return $this->fields['imgProfile'];
+    }
+
+    public function getIdCardImage()
+    {
+        return $this->fields['imgFrontIDcard'];
+    }
+
+    public function getEducationImage()
+    {
+        return $this->fields['imgEducation'];
+    }
+
+    public function getRankImage()
+    {
+        return $this->fields['imgRank'];
     }
 
     public function isAccountNonExpired()

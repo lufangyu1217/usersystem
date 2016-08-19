@@ -2,8 +2,12 @@
 
 namespace AppBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use AppBundle\Common\ExtensionalBundle;
 
-class AppBundle extends Bundle
+class AppBundle extends ExtensionalBundle
 {
+	public function getEnabledExtensions()
+    {
+        return array('DataTag', 'DataDict');
+    }
 }
